@@ -1,11 +1,10 @@
-import React from "react";
 import "./App.css";
-import ForecastList from "./app/containers/ForecatList";
+import Layout from "../src/app/containers/Layout";
 
 function App() {
   return (
     <div className="App">
-      <ForecastList />
+      <Layout />
     </div>
   );
 }

@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import getLocationReducer from "./GetLocation";
-import getWeatherReducer from "./GetWeather";
+import getEmployees from "./GetEmployees";
 
 export default combineReducers({
-  getLocation: getLocationReducer,
-  getWeather: getWeatherReducer,
+  getEmployees: getEmployees,
 });

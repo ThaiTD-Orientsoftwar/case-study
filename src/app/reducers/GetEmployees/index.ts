@@ -1,18 +1,18 @@
 import {
-  GET_LOCATION,
-  GET_LOCATION_SUCCESS,
-  GET_LOCATION_ERROR,
+  GET_EMPLOYEES,
+  GET_EMPLOYEES_SUCCESS,
+  GET_EMPLOYEES_ERROR,
 } from "../../actions";
 
 const initialState = {};
 
-export default function getLocationReducer(state = initialState, action: any) {
+export default function getEmployeesReducer(state = initialState, action: any) {
   switch (action.type) {
-    case GET_LOCATION:
+    case GET_EMPLOYEES:
       return { ...state, loading: true };
-    case GET_LOCATION_SUCCESS:
+    case GET_EMPLOYEES_SUCCESS:
       return { ...state, data: action.data, loading: false };
-    case GET_LOCATION_ERROR:
+    case GET_EMPLOYEES_ERROR:
       return { ...state, loading: false };
     default:
       return state;

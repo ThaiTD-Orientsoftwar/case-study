@@ -1,33 +1,19 @@
 import {
-  getLocation,
-  GET_LOCATION,
-  getLocationSuccess,
-  getLocationError,
-  GET_LOCATION_ERROR,
-  GET_LOCATION_SUCCESS,
-} from "./GetLocation";
-import {
-  getWeather,
-  GET_WEATHER,
-  getWeatherSuccess,
-  getWeatherError,
-  GET_WEATHER_ERROR,
-  GET_WEATHER_SUCCESS,
-} from "./GetWeather";
+  getEmployees,
+  getEmployeesError,
+  getEmployeesSuccess,
+  GET_EMPLOYEES,
+  GET_EMPLOYEES_ERROR,
+  GET_EMPLOYEES_SUCCESS,
+} from "./GetEmployees";
 
 export {
-  getLocation,
-  getLocationError,
-  getLocationSuccess,
-  getWeather,
-  getWeatherSuccess,
-  getWeatherError,
+  getEmployees,
+  getEmployeesError,
+  getEmployeesSuccess,
 };
 export {
-  GET_LOCATION,
-  GET_LOCATION_ERROR,
-  GET_LOCATION_SUCCESS,
-  GET_WEATHER,
-  GET_WEATHER_SUCCESS,
-  GET_WEATHER_ERROR,
+  GET_EMPLOYEES,
+  GET_EMPLOYEES_ERROR,
+  GET_EMPLOYEES_SUCCESS,
 };
