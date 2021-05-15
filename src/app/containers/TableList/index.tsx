@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { Table } from "antd";
+import { Table, Button } from "antd";
 import { connect } from "react-redux";
 import { getEmployees } from "../../actions/GetEmployees";
+import { addEmployee } from "../../actions/AddEmployee";
 
 const columns = [
   {
@@ -22,32 +23,53 @@ const columns = [
 ];
 
 const TableList = (props: any) => {
-  const { data, loading } = props;
+  const {
+    data,
+    get: { loading: getLoading, error: getError },
+    add: { loading: addLoading, error: addError },
+  } = props;
 
   useEffect(() => {
     props.getEmployees();
   }, []);
 
+  const handleAddItem = () => {
+    props.addEmployee();
+  };
+
   return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      pagination={{ defaultPageSize: 5 }}
-      loading={loading}
-    />
+    <div>
+      <div style={{ marginBottom: "10px", textAlign: "right" }}>
+        <Button
+          type="primary"
+          onClick={handleAddItem}
+          size="large"
+          loading={addLoading}
+        >
+          Add new
+        </Button>
+      </div>
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={{ defaultPageSize: 5, showSizeChanger: false }}
+        loading={getLoading}
+      />
+    </div>
   );
 };
 
 const mapStateToProps = (state: any) => {
-  const { getEmployees } = state;
+  const { employees } = state;
   return {
-    ...getEmployees,
+    ...employees,
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
     getEmployees: () => dispatch(getEmployees()),
+    addEmployee: () => dispatch(addEmployee()),
   };
 };
 
