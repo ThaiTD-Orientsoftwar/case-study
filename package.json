@@ -11,7 +11,6 @@
     "antd": "^4.15.5",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "jest": "^26.6.3",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "npm-watch": "^0.7.0",
@@ -35,7 +34,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watch",
+    "test": "jest",
     "watch": "npm-watch",
     "eject": "react-scripts eject"
   },
@@ -75,7 +74,6 @@
     "@types/lodash": "^4.14.168",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
-    "babel-jest": "^26.6.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "prettier": "2.2.1",
