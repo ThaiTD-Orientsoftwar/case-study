@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { Table, Button } from "antd";
 import { connect } from "react-redux";
 import { getEmployees, addEmployee } from "../../actions/employee";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../reducers";
 
 const Header = styled("div")`
   margin-bottom: 10px;
@@ -28,21 +30,21 @@ const columns = [
 ];
 
 const TableList = (props: any) => {
+  const employees = useSelector((state: RootState) => state.employees);
+  const dispatch = useDispatch();
   const {
     data,
     get: { loading: getLoading },
     add: { loading: addLoading },
-    getEmployees,
-    addEmployee,
-  } = props;
+  } = employees;
 
   useEffect(() => {
-    getEmployees();
+    dispatch(getEmployees());
   }, []);
 
-  const handleAddItem = () => {
-    addEmployee();
-  };
+  const handleAddItem = useCallback(() => {
+    dispatch(addEmployee());
+  }, []);
 
   return (
     <div>
@@ -66,18 +68,4 @@ const TableList = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
-  const { employees } = state;
-  return {
-    ...employees,
-  };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    getEmployees: () => dispatch(getEmployees()),
-    addEmployee: () => dispatch(addEmployee()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TableList);
+export default TableList;

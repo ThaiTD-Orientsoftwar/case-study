@@ -1,5 +1,7 @@
-import { GetEmployeesResponse } from "../../models/GetEmployees";
-import { AddEmployeeResponse } from "../../models/AddEmployee";
+import {
+  GetEmployeesResponse,
+  AddEmployeeResponse,
+} from "../../models/employee";
 
 //Add employee
 export const ADD_EMPLOYEE = "ADD_IMPLOYEE";

@@ -1,5 +1,4 @@
-import { GetEmployeesResponse } from "../models/GetEmployees";
-import { AddEmployeeResponse } from "../models/AddEmployee";
+import { GetEmployeesResponse, AddEmployeeResponse } from "../models/employee";
 import connector from "../utils/connector";
 import { api } from "../constants";
 

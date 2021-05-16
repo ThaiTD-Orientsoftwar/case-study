@@ -2,8 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu, PageHeader, Divider } from "antd";
 import { routes } from "../../constants";
+import styled from "styled-components";
 
 const { Header, Content, Sider } = Layout;
+
+const Container = styled(Layout)`
+  height: 100vh;
+`;
+
+const StyledHeader = styled(Header)`
+  color: #fff;
+  text-align: left;
+  font-size: 20px;
+`;
+
+const StyledDivider = styled(Divider)`
+  margin: 0;
+`;
+
+const StyledContent = styled(Content)`
+  padding: 10px 10px;
+`;
 
 const tabs = {
   counter: {
@@ -25,13 +44,8 @@ const withLayout = (
   const tabKey = tabs[type].key;
 
   return (
-    <Layout style={{ height: "100vh" }}>
-      <Header
-        className="header"
-        style={{ color: "white", textAlign: "left", fontSize: "20px" }}
-      >
-        Case Study
-      </Header>
+    <Container>
+      <StyledHeader className="header">Case Study</StyledHeader>
       <Layout>
         <Sider width={200} className="site-layout-background">
           <Menu
@@ -49,16 +63,12 @@ const withLayout = (
           </Menu>
         </Sider>
         <Layout>
-          <PageHeader
-            className="site-page-header"
-            title={tabName}
-            style={{ textAlign: "left" }}
-          />
-          <Divider style={{ margin: 0 }} />
-          <Content style={{ padding: "10px 10px" }}>{component}</Content>
+          <PageHeader className="site-page-header" title={tabName} />
+          <StyledDivider />
+          <StyledContent>{component}</StyledContent>
         </Layout>
       </Layout>
-    </Layout>
+    </Container>
   );
 };
 

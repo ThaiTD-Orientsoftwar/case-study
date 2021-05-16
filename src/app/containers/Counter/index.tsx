@@ -38,12 +38,12 @@ const Counter = () => {
   const handleIncrease = useCallback(() => {
     const newCounter = counter + 1;
     setCounter(newCounter);
-  }, [counter]);
+  }, []);
 
   const handleReset = useCallback(() => {
     const newCounter = 1;
     setCounter(newCounter);
-  }, [counter]);
+  }, []);
 
   return (
     <Container>
