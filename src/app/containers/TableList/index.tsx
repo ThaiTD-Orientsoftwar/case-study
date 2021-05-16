@@ -2,6 +2,12 @@ import { useEffect } from "react";
 import { Table, Button } from "antd";
 import { connect } from "react-redux";
 import { getEmployees, addEmployee } from "../../actions/employee";
+import styled from "styled-components";
+
+const Header = styled("div")`
+  margin-bottom: 10px;
+  text-align: right;
+`;
 
 const columns = [
   {
@@ -40,7 +46,7 @@ const TableList = (props: any) => {
 
   return (
     <div>
-      <div style={{ marginBottom: "10px", textAlign: "right" }}>
+      <Header>
         <Button
           type="primary"
           onClick={handleAddItem}
@@ -49,7 +55,7 @@ const TableList = (props: any) => {
         >
           Add new
         </Button>
-      </div>
+      </Header>
       <Table
         columns={columns}
         dataSource={data}

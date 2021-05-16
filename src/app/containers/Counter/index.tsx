@@ -1,45 +1,56 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 import { Button } from "antd";
+import styled from "styled-components";
+
+const Container = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+`;
+
+const NumberWrapper = styled("div")`
+  border: solid 1px #e0e0e0;
+  border-radius: 4px;
+  padding: 20px 46px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #b7b0d1;
+
+  span {
+    margin: 0 10px;
+    font-size: 50px;
+    font-weight: 600;
+  }
+`;
+
+const ButtonWrapper = styled("div")`
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+`;
 
 const Counter = () => {
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState<number>(1);
 
-  const handleIncrease = () => {
+  const handleIncrease = useCallback(() => {
     const newCounter = counter + 1;
     setCounter(newCounter);
-  };
+  }, [counter]);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     const newCounter = 1;
     setCounter(newCounter);
-  };
+  }, [counter]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        style={{
-          border: "solid 1px #e0e0e0",
-          borderRadius: "4px",
-          padding: "20px 46px",
-          marginBottom: "10px",
-          width: "100%",
-          backgroundColor: "#b7b0d1",
-        }}
-      >
-        <span style={{ margin: "0 10px", fontSize: "50px", fontWeight: 600 }}>
-          {counter}
-        </span>
-      </div>
-      <div>
+    <Container>
+      <NumberWrapper>
+        <span>{counter}</span>
+      </NumberWrapper>
+      <ButtonWrapper>
         <Button
           type="primary"
           onClick={handleIncrease}
@@ -48,16 +59,11 @@ const Counter = () => {
         >
           Increase
         </Button>
-        <Button
-          onClick={handleReset}
-          style={{ margin: "0 10px" }}
-          size="large"
-          id="reset"
-        >
+        <Button onClick={handleReset} size="large" id="reset">
           Reset
         </Button>
-      </div>
-    </div>
+      </ButtonWrapper>
+    </Container>
   );
 };
 
