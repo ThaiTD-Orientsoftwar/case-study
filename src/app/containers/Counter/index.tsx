@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Button } from "antd";
 
@@ -39,10 +40,20 @@ const Counter = () => {
         </span>
       </div>
       <div>
-        <Button type="primary" onClick={handleIncrease} size="large">
+        <Button
+          type="primary"
+          onClick={handleIncrease}
+          size="large"
+          id="increase"
+        >
           Increase
         </Button>
-        <Button onClick={handleReset} style={{ margin: "0 10px" }} size="large">
+        <Button
+          onClick={handleReset}
+          style={{ margin: "0 10px" }}
+          size="large"
+          id="reset"
+        >
           Reset
         </Button>
       </div>

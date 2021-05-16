@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { Layout, Menu, PageHeader } from "antd";
-import { Divider } from "antd";
+import { Layout, Menu, PageHeader, Divider } from "antd";
 
 const { Header, Content, Sider } = Layout;
 
