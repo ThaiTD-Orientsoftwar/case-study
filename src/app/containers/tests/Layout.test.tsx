@@ -1,13 +1,27 @@
 import React from "react";
-import { shallow } from "enzyme";
-import Layout from "../Layout";
+import { shallow, render } from "enzyme";
+import { MemoryRouter } from "react-router-dom";
+import Counter from "../Counter";
+import TableList from "../TableList";
+import withLayout from "../Layout/components/withLayout";
+import Button from "antd";
 
 describe("Layout testing", () => {
   let wrapper: any;
-
-  beforeEach(() => {
-    wrapper = shallow(<Layout />);
+  it("renders Counter with '/' ", () => {
+    wrapper = shallow(
+      <MemoryRouter initialEntries={["/"]}>
+        {withLayout(<Counter />, "counter")}
+      </MemoryRouter>
+    );
+    expect(wrapper.find(Counter)).toHaveLength(1);
   });
-
-  it("render correctly", () => {});
+  it("renders TableList with '/list' ", () => {
+    wrapper = shallow(
+      <MemoryRouter initialEntries={["/list"]}>
+        {withLayout(<TableList />, "list")}
+      </MemoryRouter>
+    );
+    expect(wrapper.find(TableList)).toHaveLength(1);
+  });
 });

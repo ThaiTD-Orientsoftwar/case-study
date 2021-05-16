@@ -1,4 +1,5 @@
-import { useHistory } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { Layout, Menu, PageHeader, Divider } from "antd";
 
 const { Header, Content, Sider } = Layout;
@@ -18,7 +19,7 @@ const PageLayout = (
   component: React.ReactElement,
   type: "counter" | "list"
 ) => {
-  const history = useHistory();
+  // const history = useHistory();
   const tabName = tabs[type].title;
   const tabKey = tabs[type].key;
 
@@ -38,11 +39,11 @@ const PageLayout = (
             mode="inline"
             theme="dark"
           >
-            <Menu.Item key="1" onClick={() => history.push("/")}>
-              Counter
+            <Menu.Item key="1">
+              <Link to="/">Counter</Link>
             </Menu.Item>
-            <Menu.Item key="2" onClick={() => history.push("/list")}>
-              Table List
+            <Menu.Item key="2">
+              <Link to="list">Table List</Link>
             </Menu.Item>
           </Menu>
         </Sider>
