@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Table, Button } from "antd";
 import { connect } from "react-redux";
-import { getEmployees } from "../../actions/GetEmployees";
-import { addEmployee } from "../../actions/AddEmployee";
+import { getEmployees, addEmployee } from "../../actions/employee";
 
 const columns = [
   {
@@ -25,16 +24,18 @@ const columns = [
 const TableList = (props: any) => {
   const {
     data,
-    get: { loading: getLoading, error: getError },
-    add: { loading: addLoading, error: addError },
+    get: { loading: getLoading },
+    add: { loading: addLoading },
+    getEmployees,
+    addEmployee,
   } = props;
 
   useEffect(() => {
-    props.getEmployees();
+    getEmployees();
   }, []);
 
   const handleAddItem = () => {
-    props.addEmployee();
+    addEmployee();
   };
 
   return (

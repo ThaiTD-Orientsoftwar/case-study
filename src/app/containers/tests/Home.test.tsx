@@ -3,8 +3,7 @@ import { shallow, render } from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 import Counter from "../Counter";
 import TableList from "../TableList";
-import withLayout from "../Layout/components/withLayout";
-import Button from "antd";
+import withLayout from "../../components/Layout";
 
 describe("Layout testing", () => {
   let wrapper: any;

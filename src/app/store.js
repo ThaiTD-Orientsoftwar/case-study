@@ -1,4 +1,4 @@
-import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import reducers from "../app/reducers";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./sagas";

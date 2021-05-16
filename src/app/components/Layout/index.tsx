@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu, PageHeader, Divider } from "antd";
+import { routes } from "../../constants";
 
 const { Header, Content, Sider } = Layout;
 
@@ -15,7 +16,7 @@ const tabs = {
   },
 };
 
-const PageLayout = (
+const withLayout = (
   component: React.ReactElement,
   type: "counter" | "list"
 ) => {
@@ -40,10 +41,10 @@ const PageLayout = (
             theme="dark"
           >
             <Menu.Item key="1">
-              <Link to="/">Counter</Link>
+              <Link to={routes.counter}>Counter</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to="list">Table List</Link>
+              <Link to={routes.tableList}>Table List</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -61,4 +62,4 @@ const PageLayout = (
   );
 };
 
-export default PageLayout;
+export default withLayout;

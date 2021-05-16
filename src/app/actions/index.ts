@@ -5,15 +5,13 @@ import {
   GET_EMPLOYEES,
   GET_EMPLOYEES_ERROR,
   GET_EMPLOYEES_SUCCESS,
-} from "./GetEmployees";
-import {
   addEmployee,
   addEmployeeError,
   addEmployeeSuccess,
   ADD_EMPLOYEE,
   ADD_EMPLOYEE_ERROR,
   ADD_EMPLOYEE_SUCCESS,
-} from "./AddEmployee";
+} from "./employee";
 
 export {
   getEmployees,
