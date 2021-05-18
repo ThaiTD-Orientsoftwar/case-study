@@ -18,6 +18,7 @@ const NumberWrapper = styled("div")`
   margin-bottom: 10px;
   width: 100%;
   background-color: #b7b0d1;
+  text-align: center;
 
   span {
     margin: 0 10px;
