@@ -11,6 +11,7 @@ const renderRoutes = (routes: RouteItem[]) => {
     <Router>
       {routes.map((route: RouteItem) => (
         <Route
+          key={route.path}
           exact={route.isExact}
           path={route.path}
           component={(props: any) => route.component}

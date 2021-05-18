@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from "react";
 import { Table, Button } from "antd";
-import { connect } from "react-redux";
 import { getEmployees, addEmployee } from "../../actions/employee";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
@@ -40,11 +39,11 @@ const TableList = (props: any) => {
 
   useEffect(() => {
     dispatch(getEmployees());
-  }, []);
+  }, [dispatch]);
 
   const handleAddItem = useCallback(() => {
     dispatch(addEmployee());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
