@@ -11,19 +11,23 @@ import {
   getEmployeesAPI,
   addEmployeeAPI,
 } from "../../services/employeeServices";
-
+import { GetEmployeesRequest } from "../../models/employee";
+import { get, pullAll } from "lodash";
 export function* getEmployees({
   type,
-  payload,
+  ...payload
 }: {
   type: string;
   payload: any;
 }) {
   try {
     const {
-      data: { data },
-    } = yield call(getEmployeesAPI);
-    yield put({ type: GET_EMPLOYEES_SUCCESS, data });
+      data: { data, total },
+    } = yield call(getEmployeesAPI, {
+      limit: get(payload, "limit", 5),
+      page: get(payload, "page", 1),
+    });
+    yield put({ type: GET_EMPLOYEES_SUCCESS, data, total });
   } catch (error) {
     yield put({ type: GET_EMPLOYEES_ERROR });
   }
@@ -31,7 +35,7 @@ export function* getEmployees({
 
 export function* addEmployee({
   type,
-  payload,
+  ...payload
 }: {
   type: string;
   payload: any;
@@ -39,9 +43,13 @@ export function* addEmployee({
   try {
     const {
       data: { data },
-    } = yield call(addEmployeeAPI);
+    } = yield call(addEmployeeAPI, {
+      name: get(payload, "name", ""),
+      email: get(payload, "email", ""),
+      position: get(payload, "position", ""),
+    });
     yield put({ type: ADD_EMPLOYEE_SUCCESS, data });
-    yield put({ type: GET_EMPLOYEES });
+    yield put({ type: GET_EMPLOYEES, page: get(payload, "page", 1), limit: 5 });
   } catch (error) {
     yield put({ type: ADD_EMPLOYEE_ERROR });
   }

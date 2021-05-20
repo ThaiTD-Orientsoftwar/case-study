@@ -9,6 +9,8 @@ import {
 
 const initialState = {
   data: [],
+  total: 0,
+  page: 1,
   get: {
     loading: false,
     error: false,
@@ -22,11 +24,16 @@ const initialState = {
 export default function getEmployeesReducer(state = initialState, action: any) {
   switch (action.type) {
     case GET_EMPLOYEES:
-      return { ...state, get: { loading: true, error: false } };
+      return {
+        ...state,
+        get: { loading: true, error: false },
+        page: action.page,
+      };
     case GET_EMPLOYEES_SUCCESS:
       return {
         ...state,
         data: action.data,
+        total: action.total,
         get: { loading: false, error: false },
       };
     case GET_EMPLOYEES_ERROR:

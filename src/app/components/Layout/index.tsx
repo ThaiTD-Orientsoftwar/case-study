@@ -45,7 +45,7 @@ const withLayout = (
 
   return (
     <Container>
-      <StyledHeader className="header">Case Study</StyledHeader>
+      <StyledHeader className="header">Employee management</StyledHeader>
       <Layout>
         <Sider width={200} className="site-layout-background">
           <Menu
@@ -58,7 +58,7 @@ const withLayout = (
               <Link to={routes.counter}>Counter</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to={routes.tableList}>Table List</Link>
+              <Link to={routes.tableList}>Employee</Link>
             </Menu.Item>
           </Menu>
         </Sider>

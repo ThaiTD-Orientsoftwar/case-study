@@ -14,9 +14,17 @@ export const GET_EMPLOYEES_SUCCESS = "GET_IMPLOYEES_SUCCESS";
 export const GET_EMPLOYEES_ERROR = "GET_IMPLOYEES_ERROR";
 
 //GET
-export const getEmployees = () => {
+export const getEmployees = ({
+  page,
+  limit,
+}: {
+  page: number;
+  limit: number;
+}) => {
   return {
     type: GET_EMPLOYEES,
+    page,
+    limit,
   };
 };
 export const getEmployeesSuccess = (res: GetEmployeesResponse) => {
@@ -33,9 +41,23 @@ export const getEmployeesError = (res: any) => {
 };
 
 //ADD
-export const addEmployee = () => {
+export const addEmployee = ({
+  name,
+  email,
+  position,
+  page,
+}: {
+  name: string;
+  email: string;
+  position: string;
+  page: number;
+}) => {
   return {
     type: ADD_EMPLOYEE,
+    name,
+    email,
+    position,
+    page,
   };
 };
 export const addEmployeeSuccess = (res: AddEmployeeResponse) => {

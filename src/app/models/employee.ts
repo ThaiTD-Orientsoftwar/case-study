@@ -4,11 +4,18 @@ export interface Employee {
   position: string;
 }
 
-interface GetEmployeesRequest {}
+interface GetEmployeesRequest {
+  page: number;
+  limit: number;
+}
 
 interface GetEmployeesResponse {}
 
-interface AddEmployeeRequest {}
+interface AddEmployeeRequest {
+  name: string;
+  email: string;
+  position: string;
+}
 
 interface AddEmployeeResponse {}
 
