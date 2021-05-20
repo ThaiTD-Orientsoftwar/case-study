@@ -11,8 +11,7 @@ import {
   getEmployeesAPI,
   addEmployeeAPI,
 } from "../../services/employeeServices";
-import { GetEmployeesRequest } from "../../models/employee";
-import { get, pullAll } from "lodash";
+import { get } from "lodash";
 export function* getEmployees({
   type,
   ...payload

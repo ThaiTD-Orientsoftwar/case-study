@@ -48,7 +48,7 @@ const TableList = (props: any) => {
 
   useEffect(() => {
     if (!addLoading && !addError) setShowModal(false);
-  }, [addLoading]);
+  }, [addLoading, addError]);
 
   const handleShowModal = useCallback(
     (value: boolean) => {
